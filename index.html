@@ -10,8 +10,23 @@
 	<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-	<header></header>
-	<main></main>
-	<footer></footer>
+	<div id="site-header"></div>
+	<main id="site-body"></main>
+	<div id="site-footer"></div>
+	<script>
+		["header", "body", "footer"].forEach(component => {
+			fetch(`components/${component}.html`)
+				.then(response => response.text())
+				.then(html => {
+					const container = document.getElementById(`site-${component}`);
+					container.innerHTML = html;
+					container.querySelectorAll("script").forEach(inactiveScript => {
+						const activeScript = document.createElement("script");
+						activeScript.textContent = inactiveScript.textContent;
+						inactiveScript.replaceWith(activeScript);
+					});
+				});
+		});
+	</script>
 </body>
 </html>

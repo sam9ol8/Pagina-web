@@ -1,0 +1,129 @@
+
+/* ==============================
+   GAME STORE - ESTILOS GLOBALES
+============================== */
+
+/* Variables generales */
+:root {
+    --gs-bg: #0b0813;
+    --gs-bg-secondary: #120d1d;
+    --gs-card-bg: #181124;
+
+    --gs-primary: #a855f7;
+    --gs-primary-hover: #9333ea;
+    --gs-accent: #c084fc;
+
+    --gs-text: #f3efff;
+    --gs-text-muted: #a49bb5;
+
+    --gs-border: rgba(168, 85, 247, 0.22);
+
+    --gs-radius-sm: 8px;
+    --gs-radius-md: 14px;
+    --gs-radius-lg: 22px;
+
+    --gs-container: 1200px;
+
+    --gs-transition: 0.25s ease;
+}
+
+/* Reinicio básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+/* Página */
+body {
+    min-height: 100vh;
+    background: var(--gs-bg);
+    color: var(--gs-text);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+/* Elementos multimedia */
+img,
+picture,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+/* Enlaces */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Botones y formularios */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+/* Botones: indicador de teclado */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--gs-accent);
+    outline-offset: 4px;
+}
+
+/* Selección de texto */
+::selection {
+    color: #ffffff;
+    background: var(--gs-primary);
+}
+
+/* Contenedor reutilizable */
+.gs-container {
+    width: min(90%, var(--gs-container));
+    margin-inline: auto;
+}
+
+/* Separación entre secciones principales */
+main {
+    width: 100%;
+}
+
+/* Evita que los anclajes queden ocultos bajo el header */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* Accesibilidad: respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
