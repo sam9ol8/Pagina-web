@@ -1,0 +1,649 @@
+
+/* ========================================
+   GAME STORE - BODY
+======================================== */
+
+.gs-body {
+    --body-purple: #8b3dff;
+    --body-violet: #c77dff;
+    --body-text: #f4edff;
+    --body-muted: #a99abd;
+    --body-surface: #17102a;
+    --body-border: rgba(174, 115, 255, 0.18);
+
+    width: min(100% - 48px, 1240px);
+    margin: 0 auto;
+    padding: 48px 0 80px;
+    color: var(--body-text);
+}
+
+.gs-body *,
+.gs-body *::before,
+.gs-body *::after {
+    box-sizing: border-box;
+}
+
+.gs-body a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.gs-eyebrow {
+    display: inline-block;
+    color: var(--body-violet);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.gs-intro {
+    margin-bottom: 28px;
+}
+
+.gs-intro h1 {
+    margin: 10px 0;
+    color: var(--body-text);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 850;
+    letter-spacing: -1.5px;
+}
+
+.gs-intro p,
+.gs-section-heading p {
+    margin: 0;
+    color: var(--body-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* CARRUSEL DESTACADO */
+
+.gs-featured {
+    margin-bottom: 65px;
+}
+
+.gs-featured__slide {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    height: clamp(390px, 38.4vw, 464px);
+    overflow: hidden;
+
+    background: linear-gradient(135deg, #20123b, #100a20);
+    border: 1px solid var(--body-border);
+    border-radius: 22px;
+
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
+}
+
+.gs-featured__slide[hidden] {
+    display: none;
+}
+
+.gs-featured__image {
+    position: relative;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gs-featured__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent 65%,
+        rgba(20, 9, 39, 0.45)
+    );
+}
+
+.gs-featured__image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.gs-featured__slide:hover .gs-featured__image img {
+    transform: scale(1.04);
+}
+
+.gs-featured__badge {
+    position: absolute;
+    z-index: 1;
+    top: 18px;
+    left: 18px;
+
+    padding: 9px 12px;
+    color: white;
+    background: rgba(106, 42, 190, 0.88);
+    border: 1px solid rgba(226, 194, 255, 0.3);
+    border-radius: 8px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.gs-featured__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px;
+}
+
+.gs-featured__info h2 {
+    margin: 12px 0;
+    font-size: clamp(30px, 4vw, 48px);
+    letter-spacing: -1.5px;
+}
+
+.gs-featured__info > p {
+    max-width: 360px;
+    margin: 0;
+    color: var(--body-muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.gs-featured__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 28px;
+}
+
+.gs-price {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gs-price span {
+    color: var(--body-muted);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.gs-price strong {
+    color: var(--body-violet);
+    font-size: 24px;
+}
+
+.gs-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 0 18px;
+    color: white;
+    background: linear-gradient(135deg, #9142f5, #6927c6);
+    border: 1px solid rgba(216, 178, 255, 0.25);
+    border-radius: 11px;
+
+    font-size: 11px;
+    font-weight: 750;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gs-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(139, 61, 255, 0.28);
+}
+
+.gs-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 18px;
+}
+
+.gs-carousel-arrow {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+
+    color: #dfc7ff;
+    background: #211437;
+    border: 1px solid var(--body-border);
+    border-radius: 9px;
+}
+
+.gs-carousel-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.gs-carousel-dot {
+    width: 7px;
+    height: 7px;
+    background: #514164;
+    border-radius: 10px;
+}
+
+.gs-carousel-dot--active {
+    width: 23px;
+    background: var(--body-violet);
+}
+
+/* TÍTULO DEL CATÁLOGO */
+
+.gs-catalog {
+    scroll-margin-top: 110px;
+}
+
+.gs-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.gs-section-heading h2 {
+    margin: 9px 0;
+    font-size: clamp(24px, 3vw, 32px);
+    letter-spacing: -0.8px;
+}
+
+.gs-game-count {
+    padding: 9px 12px;
+    color: var(--body-violet);
+    background: rgba(139, 61, 255, 0.1);
+    border: 1px solid var(--body-border);
+    border-radius: 9px;
+
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* FILTROS */
+
+.gs-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding: 14px;
+
+    background: rgba(23, 16, 42, 0.82);
+    border: 1px solid var(--body-border);
+    border-radius: 15px;
+}
+
+.gs-filter-search,
+.gs-filter-select {
+    min-width: 0;
+    height: 42px;
+    display: flex;
+    align-items: center;
+
+    color: var(--body-muted);
+    background: #100a20;
+    border: 1px solid rgba(174, 115, 255, 0.15);
+    border-radius: 10px;
+}
+
+.gs-filter-search {
+    flex: 1.5;
+    gap: 10px;
+    padding: 0 12px;
+    font-size: 20px;
+}
+
+.gs-filter-search input {
+    width: 100%;
+    min-width: 0;
+    color: var(--body-text);
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 12px;
+}
+
+.gs-filter-search input::placeholder {
+    color: #807493;
+}
+
+.gs-filter-select {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.gs-filter-select select {
+    width: 100%;
+    min-width: 0;
+    color: #d8cbe9;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.gs-filter-select option {
+    color: #f4edff;
+    background: #17102a;
+}
+
+.gs-filter-search:focus-within,
+.gs-filter-select:focus-within {
+    border-color: var(--body-purple);
+}
+
+.gs-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* CUADRÍCULA DE JUEGOS */
+
+.gs-game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.gs-game-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background: var(--body-surface);
+    border: 1px solid var(--body-border);
+    border-radius: 16px;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.gs-game-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(199, 125, 255, 0.75);
+    box-shadow: 0 14px 35px rgba(101, 37, 170, 0.19);
+}
+
+.gs-game-card__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #211437;
+}
+
+.gs-game-card__image > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.gs-game-card:hover .gs-game-card__image > img {
+    transform: scale(1.06);
+    filter: brightness(1.08);
+}
+
+.gs-game-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    padding: 7px 9px;
+    border-radius: 6px;
+
+    color: white;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: 0.7px;
+}
+
+.gs-game-tag--sale {
+    background: #d83d7d;
+}
+
+.gs-game-tag--new {
+    background: #258b65;
+}
+
+.gs-game-tag--popular {
+    background: #7137bd;
+}
+
+.gs-game-card__favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 33px;
+    height: 33px;
+    display: grid;
+    place-items: center;
+
+    color: white;
+    background: rgba(15, 7, 29, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 9px;
+
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.gs-game-card:hover .gs-game-card__favorite,
+.gs-game-card__favorite:focus-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gs-game-card__content {
+    padding: 17px;
+}
+
+.gs-game-platform {
+    color: var(--body-violet);
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 0.8px;
+}
+
+.gs-game-card__content h3 {
+    margin: 10px 0 7px;
+    color: var(--body-text);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.gs-game-card__content p {
+    min-height: 36px;
+    margin: 0;
+
+    color: var(--body-muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.gs-game-card__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 13px;
+
+    border-top: 1px solid rgba(174, 115, 255, 0.13);
+}
+
+.gs-game-price {
+    color: var(--body-violet);
+    font-size: 17px;
+}
+
+.gs-add-button {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+
+    color: white;
+    background: #7137bd;
+    border: 1px solid rgba(216, 178, 255, 0.2);
+    border-radius: 10px;
+
+    font-size: 22px;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.gs-add-button:hover {
+    background: #974cf4;
+    transform: scale(1.06);
+}
+
+.gs-catalog-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.gs-button--outline {
+    color: var(--body-violet);
+    background: transparent;
+    border-color: rgba(174, 115, 255, 0.4);
+}
+
+.gs-button--outline:hover {
+    color: white;
+    background: rgba(139, 61, 255, 0.14);
+}
+
+/* ESCRITORIOS MEDIANOS */
+
+@media (max-width: 1000px) {
+    .gs-game-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .gs-featured__info {
+        padding: 25px;
+    }
+
+    .gs-filters {
+        flex-wrap: wrap;
+    }
+
+    .gs-filter-search {
+        flex-basis: 100%;
+    }
+
+    .gs-filter-select {
+        flex-basis: 0;
+    }
+}
+
+/* TABLETS Y VENTANAS PEQUEÑAS */
+
+@media (max-width: 680px) {
+    .gs-body {
+        width: min(100% - 28px, 540px);
+        padding-top: 30px;
+    }
+
+    .gs-featured__slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: 220px 1fr;
+        height: 540px;
+    }
+
+    .gs-featured__image {
+        min-height: 220px;
+    }
+
+    .gs-featured__info {
+        padding: 22px;
+    }
+
+    .gs-featured__info h2 {
+        font-size: 34px;
+    }
+
+    .gs-game-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .gs-game-card__content {
+        padding: 12px;
+    }
+
+    .gs-game-card__content h3 {
+        font-size: 13px;
+    }
+
+    .gs-game-price {
+        font-size: 14px;
+    }
+
+    .gs-game-card__favorite {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* MÓVILES */
+
+@media (max-width: 420px) {
+    .gs-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .gs-filters {
+        padding: 10px;
+    }
+
+    .gs-filter-select {
+        flex-basis: 100%;
+    }
+
+    .gs-featured__bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .gs-game-grid {
+        gap: 10px;
+    }
+}
+
+/* MOVIMIENTO REDUCIDO */
+
+@media (prefers-reduced-motion: reduce) {
+    .gs-body *,
+    .gs-body *::before,
+    .gs-body *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

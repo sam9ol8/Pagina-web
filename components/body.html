@@ -1,0 +1,358 @@
+
+<!-- CUERPO PRINCIPAL: GAME STORE -->
+<section class="gs-body">
+
+    <!-- PRESENTACIÓN -->
+    <div class="gs-intro">
+        <span class="gs-eyebrow">TU UNIVERSO GAMER</span>
+        <h1>Descubre tu próxima aventura</h1>
+        <p>Explora mundos increíbles y encuentra tu siguiente videojuego favorito.</p>
+    </div>
+
+    <!-- CARRUSEL DESTACADO -->
+    <section class="gs-featured" aria-label="Videojuegos destacados">
+
+        <article class="gs-featured__slide" data-carousel-slide="0">
+            <div class="gs-featured__image">
+                <img
+                    src="img/banners/stray-banner.jpg"
+                    alt="Arte promocional de Stray"
+                >
+                <span class="gs-featured__badge">JUEGO DESTACADO</span>
+            </div>
+
+            <div class="gs-featured__info">
+                <span class="gs-eyebrow">AVENTURA · EXPLORACIÓN</span>
+                <h2>Stray</h2>
+                <p>
+                    Explora una ciudad cibernética desde la perspectiva
+                    de un gato perdido y descubre sus secretos.
+                </p>
+
+                <div class="gs-featured__bottom">
+                    <div class="gs-price">
+                        <span>PRECIO</span>
+                        <strong>S/ 49.90</strong>
+                    </div>
+
+                    <a href="#catalogo" class="gs-button">
+                        Explorar juego
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="gs-featured__slide" data-carousel-slide="1" hidden>
+            <div class="gs-featured__image">
+                <img src="img/banners/cyberpunk.webp" alt="Arte promocional de Cyberpunk 2077">
+                <span class="gs-featured__badge">OFERTA</span>
+            </div>
+
+            <div class="gs-featured__info">
+                <span class="gs-eyebrow">RPG · ACCIÓN</span>
+                <h2>Cyberpunk 2077</h2>
+                <p>Explora Night City y escribe tu propia historia en este mundo futurista.</p>
+
+                <div class="gs-featured__bottom">
+                    <div class="gs-price">
+                        <span>PRECIO</span>
+                        <strong>S/ 89.90</strong>
+                    </div>
+
+                    <a href="#catalogo" class="gs-button">
+                        Explorar juego
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="gs-featured__slide" data-carousel-slide="2" hidden>
+            <div class="gs-featured__image">
+                <img src="img/banners/Elden Ring.jpg" alt="Arte promocional de Elden Ring">
+                <span class="gs-featured__badge">JUEGO DESTACADO</span>
+            </div>
+
+            <div class="gs-featured__info">
+                <span class="gs-eyebrow">AVENTURA · RPG</span>
+                <h2>Elden Ring</h2>
+                <p>Atraviesa las Tierras Intermedias y conviértete en el próximo Señor del Círculo.</p>
+
+                <div class="gs-featured__bottom">
+                    <div class="gs-price">
+                        <span>PRECIO</span>
+                        <strong>S/ 119.90</strong>
+                    </div>
+
+                    <a href="#catalogo" class="gs-button">
+                        Explorar juego
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="gs-featured__slide" data-carousel-slide="3" hidden>
+            <div class="gs-featured__image">
+                <img src="img/banners/hogwarts-legacy-banner.jpg" alt="Arte promocional de Hogwarts Legacy">
+                <span class="gs-featured__badge">MUNDO MÁGICO</span>
+            </div>
+
+            <div class="gs-featured__info">
+                <span class="gs-eyebrow">AVENTURA · FANTASÍA</span>
+                <h2>Hogwarts Legacy</h2>
+                <p>Asiste a Hogwarts y descubre los secretos de una aventura mágica.</p>
+
+                <div class="gs-featured__bottom">
+                    <div class="gs-price">
+                        <span>PRECIO</span>
+                        <strong>S/ 79.90</strong>
+                    </div>
+
+                    <a href="#catalogo" class="gs-button">
+                        Explorar juego
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <div class="gs-carousel-controls" role="group" aria-label="Controles del carrusel">
+            <button class="gs-carousel-arrow" type="button" data-carousel-prev aria-label="Diapositiva anterior">‹</button>
+            <div class="gs-carousel-dots" role="group" aria-label="Seleccionar diapositiva">
+                <button class="gs-carousel-dot gs-carousel-dot--active" type="button" data-carousel-to="0" aria-label="Mostrar Stray" aria-current="true"></button>
+                <button class="gs-carousel-dot" type="button" data-carousel-to="1" aria-label="Mostrar Cyberpunk 2077" aria-current="false"></button>
+                <button class="gs-carousel-dot" type="button" data-carousel-to="2" aria-label="Mostrar Elden Ring" aria-current="false"></button>
+                <button class="gs-carousel-dot" type="button" data-carousel-to="3" aria-label="Mostrar Hogwarts Legacy" aria-current="false"></button>
+            </div>
+            <button class="gs-carousel-arrow" type="button" data-carousel-next aria-label="Siguiente diapositiva">›</button>
+        </div>
+
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="gs-catalog" id="catalogo">
+
+        <div class="gs-section-heading">
+            <div>
+                <span class="gs-eyebrow">ELIGE TU AVENTURA</span>
+                <h2>Catálogo de videojuegos</h2>
+                <p>Grandes historias, nuevos mundos y horas de diversión.</p>
+            </div>
+
+            <span class="gs-game-count">04 JUEGOS</span>
+        </div>
+
+        <!-- CONTROLES DE BÚSQUEDA Y FILTRADO -->
+        <form class="gs-filters" action="#catalogo" method="get">
+
+            <label class="gs-filter-search">
+                <span class="gs-visually-hidden">Buscar videojuego</span>
+                <span aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    name="q"
+                    id="gs-game-search"
+                    placeholder="Buscar videojuegos..."
+                >
+            </label>
+
+            <label class="gs-filter-select">
+                <span class="gs-visually-hidden">Plataforma</span>
+                <select name="platform" id="gs-platform-filter">
+                    <option value="">Todas las plataformas</option>
+                    <option value="pc">PC</option>
+                    <option value="playstation">PlayStation</option>
+                    <option value="xbox">Xbox</option>
+                    <option value="nintendo">Nintendo</option>
+                </select>
+            </label>
+
+            <label class="gs-filter-select">
+                <span class="gs-visually-hidden">Género</span>
+                <select name="genre" id="gs-genre-filter">
+                    <option value="">Todos los géneros</option>
+                    <option value="action">Acción</option>
+                    <option value="adventure">Aventura</option>
+                    <option value="rpg">RPG</option>
+                    <option value="horror">Terror</option>
+                    <option value="strategy">Estrategia</option>
+                </select>
+            </label>
+
+            <label class="gs-filter-select">
+                <span class="gs-visually-hidden">Ordenar catálogo</span>
+                <select name="sort" id="gs-sort-filter">
+                    <option value="featured">Destacados</option>
+                    <option value="price-asc">Menor precio</option>
+                    <option value="price-desc">Mayor precio</option>
+                    <option value="newest">Más recientes</option>
+                </select>
+            </label>
+
+        </form>
+
+        <!-- TARJETAS DE VIDEOJUEGOS -->
+        <div class="gs-game-grid" id="gs-game-grid">
+
+            <article class="gs-game-card" data-platforms="pc playstation xbox" data-genres="rpg action" data-release="2020">
+                <div class="gs-game-card__image">
+                    <img src="img/games/juego%201.jpg"
+                         alt="Portada de Cyberpunk 2077">
+                    <span class="gs-game-tag gs-game-tag--sale">OFERTA</span>
+                    <a href="#juego-cyberpunk"
+                       class="gs-game-card__favorite"
+                       aria-label="Ver Cyberpunk 2077">↗</a>
+                </div>
+                <div class="gs-game-card__content">
+                    <span class="gs-game-platform">PC · RPG · ACCIÓN</span>
+                    <h3>Cyberpunk 2077</h3>
+                    <p>Una aventura futurista en Night City.</p>
+                    <div class="gs-game-card__bottom">
+                        <strong class="gs-game-price">S/ 89.90</strong>
+                        <a href="#carrito" class="gs-add-button"
+                           aria-label="Ver compra de Cyberpunk 2077">+</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="gs-game-card" data-platforms="pc playstation xbox" data-genres="rpg adventure" data-release="2022">
+                <div class="gs-game-card__image">
+                    <img src="img/games/juego%202.jpg"
+                         alt="Portada de Elden Ring">
+                    <span class="gs-game-tag gs-game-tag--new">NOVEDAD</span>
+                    <a href="#juego-elden-ring"
+                       class="gs-game-card__favorite"
+                       aria-label="Ver Elden Ring">↗</a>
+                </div>
+                <div class="gs-game-card__content">
+                    <span class="gs-game-platform">PC · RPG · AVENTURA</span>
+                    <h3>Elden Ring</h3>
+                    <p>Explora un mundo de fantasía y misterio.</p>
+                    <div class="gs-game-card__bottom">
+                        <strong class="gs-game-price">S/ 119.90</strong>
+                        <a href="#carrito" class="gs-add-button"
+                           aria-label="Ver compra de Elden Ring">+</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="gs-game-card" data-platforms="pc playstation xbox nintendo" data-genres="adventure" data-release="2023">
+                <div class="gs-game-card__image">
+                    <img src="img/games/juego%203.jpg"
+                         alt="Portada de Hogwarts Legacy">
+                    <span class="gs-game-tag gs-game-tag--popular">POPULAR</span>
+                    <a href="#juego-hogwarts"
+                       class="gs-game-card__favorite"
+                       aria-label="Ver Hogwarts Legacy">↗</a>
+                </div>
+                <div class="gs-game-card__content">
+                    <span class="gs-game-platform">PC · AVENTURA</span>
+                    <h3>Hogwarts Legacy</h3>
+                    <p>Descubre los secretos de un mundo mágico.</p>
+                    <div class="gs-game-card__bottom">
+                        <strong class="gs-game-price">S/ 79.90</strong>
+                        <a href="#carrito" class="gs-add-button"
+                           aria-label="Ver compra de Hogwarts Legacy">+</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="gs-game-card" data-platforms="pc playstation xbox" data-genres="action adventure" data-release="2018">
+                <div class="gs-game-card__image">
+                    <img src="img/games/juego%204.jpg"
+                         alt="Portada de Red Dead Redemption 2">
+                    <span class="gs-game-tag gs-game-tag--popular">DESTACADO</span>
+                    <a href="#juego-red-dead"
+                       class="gs-game-card__favorite"
+                       aria-label="Ver Red Dead Redemption 2">↗</a>
+                </div>
+                <div class="gs-game-card__content">
+                    <span class="gs-game-platform">PC · ACCIÓN · AVENTURA</span>
+                    <h3>Red Dead Redemption 2</h3>
+                    <p>Una historia épica en el viejo oeste.</p>
+                    <div class="gs-game-card__bottom">
+                        <strong class="gs-game-price">S/ 99.90</strong>
+                        <a href="#carrito" class="gs-add-button"
+                           aria-label="Ver compra de Red Dead Redemption 2">+</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+		<p id="gs-no-results" hidden>No se encontraron juegos con esos filtros.</p>
+
+        <div class="gs-catalog-more">
+            <a href="#catalogo" class="gs-button gs-button--outline">
+                Explorar catálogo
+                <span aria-hidden="true">→</span>
+            </a>
+        </div>
+
+    </section>
+
+</section>
+
+<script>
+(() => {
+    const carousel = document.querySelector(".gs-featured");
+    if (!carousel) return;
+
+    const slides = [...carousel.querySelectorAll(".gs-featured__slide")];
+    const dots = [...carousel.querySelectorAll(".gs-carousel-dot")];
+    let current = 0;
+
+    const showSlide = index => {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.hidden = i !== current);
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("gs-carousel-dot--active", i === current);
+            dot.setAttribute("aria-current", String(i === current));
+        });
+    };
+
+    carousel.querySelector("[data-carousel-prev]").addEventListener("click", () => showSlide(current - 1));
+    carousel.querySelector("[data-carousel-next]").addEventListener("click", () => showSlide(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
+    showSlide(current);
+
+    const form = document.querySelector(".gs-filters");
+    const search = document.querySelector("#gs-game-search");
+    const platform = document.querySelector("#gs-platform-filter");
+    const genre = document.querySelector("#gs-genre-filter");
+    const sort = document.querySelector("#gs-sort-filter");
+    const grid = document.querySelector("#gs-game-grid");
+    const count = document.querySelector(".gs-game-count");
+    const noResults = document.querySelector("#gs-no-results");
+    const cards = [...grid.querySelectorAll(".gs-game-card")];
+    const originalOrder = new Map(cards.map((card, i) => [card, i]));
+
+    const priceOf = card => Number(card.querySelector(".gs-game-price").textContent.replace(/[^\d.]/g, ""));
+
+    const applyFilters = () => {
+        const query = search.value.trim().toLocaleLowerCase("es");
+        const filtered = cards.filter(card => {
+            const matchesSearch = card.textContent.toLocaleLowerCase("es").includes(query);
+            const matchesPlatform = !platform.value || card.dataset.platforms.split(" ").includes(platform.value);
+            const matchesGenre = !genre.value || card.dataset.genres.split(" ").includes(genre.value);
+            return matchesSearch && matchesPlatform && matchesGenre;
+        });
+
+        filtered.sort((a, b) => {
+            if (sort.value === "price-asc") return priceOf(a) - priceOf(b);
+            if (sort.value === "price-desc") return priceOf(b) - priceOf(a);
+            if (sort.value === "newest") return Number(b.dataset.release) - Number(a.dataset.release);
+            return originalOrder.get(a) - originalOrder.get(b);
+        });
+
+        grid.replaceChildren(...filtered);
+        noResults.hidden = filtered.length > 0;
+        count.textContent = `${String(filtered.length).padStart(2, "0")} JUEGOS`;
+    };
+
+    form.addEventListener("submit", event => event.preventDefault());
+    search.addEventListener("input", applyFilters);
+    [platform, genre, sort].forEach(control => control.addEventListener("change", applyFilters));
+})();
+</script>
