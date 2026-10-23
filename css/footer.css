@@ -1,0 +1,193 @@
+
+/* ==============================
+   GAME STORE - FOOTER
+============================== */
+
+.gs-footer {
+    --gs-footer-bg: #0b0813;
+    --gs-footer-panel: #120d1d;
+    --gs-footer-purple: #a855f7;
+    --gs-footer-text: #f3efff;
+    --gs-footer-muted: #a49bb5;
+
+    background: var(--gs-footer-bg);
+    color: var(--gs-footer-text);
+    border-top: 1px solid rgba(168, 85, 247, 0.25);
+    margin-top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Contenedor principal */
+
+.gs-footer__container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 55px 0 45px;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+/* Logo */
+
+.gs-footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--gs-footer-text);
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.gs-footer__logo strong {
+    color: var(--gs-footer-purple);
+}
+
+.gs-footer__logo-icon {
+    font-size: 28px;
+}
+
+/* Descripción */
+
+.gs-footer__description {
+    max-width: 300px;
+    margin: 18px 0 24px;
+
+    color: var(--gs-footer-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Redes sociales */
+
+.gs-footer__socials {
+    display: flex;
+    gap: 10px;
+}
+
+.gs-footer__socials a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gs-footer-text);
+    background: var(--gs-footer-panel);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.gs-footer__socials a:hover {
+    background: var(--gs-footer-purple);
+    color: #ffffff;
+    border-color: var(--gs-footer-purple);
+    transform: translateY(-4px);
+}
+
+/* Columnas */
+
+.gs-footer__column h3 {
+    margin: 4px 0 22px;
+
+    color: var(--gs-footer-text);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.gs-footer__column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gs-footer__column a {
+    display: inline-block;
+
+    color: var(--gs-footer-muted);
+    text-decoration: none;
+    font-size: 14px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gs-footer__column a:hover {
+    color: var(--gs-footer-purple);
+    transform: translateX(4px);
+}
+
+/* Franja inferior */
+
+.gs-footer__bottom {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 22px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gs-footer__bottom p {
+    margin: 0;
+    color: var(--gs-footer-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.gs-footer__credit span {
+    color: #c084fc;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 900px) {
+    .gs-footer__container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px;
+    }
+}
+
+@media (max-width: 520px) {
+    .gs-footer__container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 0;
+    }
+
+    .gs-footer__description {
+        max-width: 100%;
+    }
+
+    .gs-footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
