@@ -327,6 +327,18 @@
     const noResults = document.querySelector("#gs-no-results");
     const cards = [...grid.querySelectorAll(".gs-game-card")];
     const originalOrder = new Map(cards.map((card, i) => [card, i]));
+    let navigationFilter = "";
+    const navigationTags = {
+        sale: ".gs-game-tag--sale",
+        preorder: ".gs-game-tag--preorder",
+        new: ".gs-game-tag--new"
+    };
+
+    const setActiveNavigation = filter => {
+        document.querySelectorAll(".gs-nav__link").forEach(link => {
+            link.classList.toggle("gs-nav__link--active", link.dataset.catalogFilter === filter);
+        });
+    };
 
     const priceOf = card => Number(card.querySelector(".gs-game-price").textContent.replace(/[^\d.]/g, ""));
 
@@ -336,7 +348,8 @@
             const matchesSearch = card.textContent.toLocaleLowerCase("es").includes(query);
             const matchesPlatform = !platform.value || card.dataset.platforms.split(" ").includes(platform.value);
             const matchesGenre = !genre.value || card.dataset.genres.split(" ").includes(genre.value);
-            return matchesSearch && matchesPlatform && matchesGenre;
+            const matchesNavigation = !navigationFilter || Boolean(card.querySelector(navigationTags[navigationFilter]));
+            return matchesSearch && matchesPlatform && matchesGenre && matchesNavigation;
         });
 
         filtered.sort((a, b) => {
@@ -348,11 +361,43 @@
 
         grid.replaceChildren(...filtered);
         noResults.hidden = filtered.length > 0;
+        noResults.textContent = navigationFilter === "preorder"
+            ? "No hay juegos en preventa por el momento."
+            : "No se encontraron juegos con esos filtros.";
         count.textContent = `${String(filtered.length).padStart(2, "0")} JUEGOS`;
     };
 
     form.addEventListener("submit", event => event.preventDefault());
     search.addEventListener("input", applyFilters);
     [platform, genre, sort].forEach(control => control.addEventListener("change", applyFilters));
+
+    document.addEventListener("click", event => {
+        const link = event.target.closest(".gs-nav__link");
+        if (!link) return;
+
+        event.preventDefault();
+        navigationFilter = link.dataset.catalogFilter === "all" ? "" : link.dataset.catalogFilter;
+        search.value = "";
+        platform.value = "";
+        genre.value = "";
+        sort.value = "featured";
+        setActiveNavigation(link.dataset.catalogFilter);
+        applyFilters();
+        document.querySelector("#catalogo").scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.addEventListener("input", event => {
+        if (!event.target.matches(".gs-search__input")) return;
+        search.value = event.target.value;
+        navigationFilter = "";
+        setActiveNavigation("all");
+        applyFilters();
+    });
+
+    document.addEventListener("submit", event => {
+        if (!event.target.matches(".gs-search")) return;
+        event.preventDefault();
+        document.querySelector("#catalogo").scrollIntoView({ behavior: "smooth" });
+    });
 })();
 </script>
